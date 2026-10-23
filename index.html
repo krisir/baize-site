@@ -51,7 +51,6 @@
         <span>Android 10+</span>
         <span>单聊天界面</span>
         <span>数据存本地 SQLite</span>
-        <span>支持语音对话</span>
         <span>可导出 Excel</span>
       </div>
     </div>
@@ -63,7 +62,7 @@
         <div class="phone-caret">▾</div>
       </div>
       <div class="chat">
-        <div class="bubble me">客厅的充电宝借给老张了，记得提醒他还</div>
+        <div class="bubble me">客厅的充电宝借给老张了，记一下</div>
         <div class="bubble tool">record.create · Loan · 已写入</div>
         <div class="bubble bot">记好了：充电宝（黑色，20000mAh）→ 老张，10 月 23 日。要不要我建一个「借出中」的视图？</div>
         <div class="mini-card">
@@ -87,7 +86,7 @@
       <h2>它不是「又一个聊天框」，<br>而是一套会长大的助手运行时</h2>
       <p class="lede">
         普通 App 的字段是产品经理写死的，白泽的字段是你说出来的。
-        为了让这件事真的能跑，底下有模型版本、脚本沙箱、权限审批和持久化任务在撑着。
+        为了让这件事真的能跑，底下有模型版本、脚本沙箱和权限审批在撑着。
       </p>
     </div>
 
@@ -147,24 +146,24 @@
       </article>
 
       <article class="card amber">
-        <div class="icon">🎙️</div>
-        <h3>能说话，也能被说话打断</h3>
+        <div class="icon">🧾</div>
+        <h3>要你点头的，才真的发生</h3>
         <p>
-          系统级语音识别与合成：随手一句就落成一条记录，也可以整段语音对话。
-          它念到一半你插话，它会停下来听你说。
-        </p>
-      </article>
-
-      <article class="card rose">
-        <div class="icon">⏰</div>
-        <h3>到点自己干活</h3>
-        <p>
-          巡检、到期提醒、月度汇总都可以排成持久任务：应用重启不丢，
-          失败会退避重试，超过上限就老实记成失败留给你看。
+          「待你处理」永远排在「最近动态」前面：哪张表要改结构、影响多少条记录、
+          批了还能不能撤回，都写在卡片上。一次授权只生效一次。
         </p>
       </article>
 
       <article class="card sky">
+        <div class="icon">🔍</div>
+        <h3>想看细节，看得到</h3>
+        <p>
+          每个助手都有「高级开发者视图」，直接展示数据库里真实保存的
+          Schema、脚本源码和最近的执行日志。开发者模式在「关于白泽」里连点应用图标 5 次开启。
+        </p>
+      </article>
+
+      <article class="card rose">
         <div class="icon">📤</div>
         <h3>数据是你的，能带走</h3>
         <p>
@@ -290,8 +289,8 @@
         <p>模型 API Key 用 Android Keystore 加密存放，不写进日志，也不随导出的数据一起走。</p>
       </div>
       <div class="sec-item">
-        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>本地备份</h3>
-        <p>备份带清单和版本校验：版本对不上就拒绝恢复；恢复要重启生效，界面会直说，不会假装已经恢复。</p>
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>数据留在设备</h3>
+        <p>助手的表和记录都在这台手机的 SQLite 里，没有账号、没有云同步；要带走就导出 Excel，App 不碰存储权限。</p>
       </div>
     </div>
 
