@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白泽 · Baize Agent — 会自己长本事的 Android 个人 AI 助手</title>
+<meta name="description" content="白泽（Baize Agent）是一个在 Android 手机上运行的个人 AI 助手平台：用一句话创建助手，助手自己设计数据结构、自己写脚本、自己长出界面，数据与权限全部留在手机本地。">
+<meta name="theme-color" content="#7355D8">
+<meta property="og:title" content="白泽 · Baize Agent">
+<meta property="og:description" content="在手机上养一个会自己长本事的 AI 助手。本地优先、多助手、对话里长出新能力。">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/mascot.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/mascot.svg" alt="" width="34" height="34">
+      <span>白泽<small>Baize Agent</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#start">如何使用</a>
+      <a href="#why">特点</a>
+      <a href="#security">安全性</a>
+      <a class="nav-cta" href="examples.html">助手示例</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= Hero ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="badge"><span class="dot"></span>Android · 本地优先 · 多助手</span>
+      <h1>在手机上养一个<br><span class="accent">会自己长本事</span>的 AI 助手</h1>
+      <p class="hero-sub">
+        对白泽说一句「帮我管理家里的物品，记录东西放在哪里」，
+        它就自己去建数据表、字段和台账。以后需要什么新能力，也是在对话里长出来——
+        而不需要等一个 App 更新。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="examples.html">看看 12 个助手示例 →</a>
+        <a class="btn btn-ghost" href="#features">它到底怎么工作</a>
+      </div>
+      <div class="hero-meta">
+        <span>Android 10+</span>
+        <span>单聊天界面</span>
+        <span>数据存本地 SQLite</span>
+        <span>支持语音对话</span>
+        <span>可导出 Excel</span>
+      </div>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="phone-bar">
+        <div class="phone-avatar">🌱</div>
+        <div class="phone-name">物品管家<small>我的助手</small></div>
+        <div class="phone-caret">▾</div>
+      </div>
+      <div class="chat">
+        <div class="bubble me">客厅的充电宝借给老张了，记得提醒他还</div>
+        <div class="bubble tool">record.create · Loan · 已写入</div>
+        <div class="bubble bot">记好了：充电宝（黑色，20000mAh）→ 老张，10 月 23 日。要不要我建一个「借出中」的视图？</div>
+        <div class="mini-card">
+          <h4>借出中 · 3 件</h4>
+          <div class="mini-row"><span>充电宝</span><b>老张 · 3 天</b></div>
+          <div class="mini-row"><span>电钻</span><b>隔壁王哥 · 11 天</b></div>
+          <div class="mini-row"><span>投影仪</span><b>表弟 · 26 天</b></div>
+        </div>
+        <div class="bubble me">哪个放客厅？</div>
+        <div class="bubble bot">电钻在阳台储物柜第二层，投影仪在卧室衣柜顶上。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 功能 ================= -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Features</p>
+      <h2>它不是「又一个聊天框」，<br>而是一套会长大的助手运行时</h2>
+      <p class="lede">
+        普通 App 的字段是产品经理写死的，白泽的字段是你说出来的。
+        为了让这件事真的能跑，底下有模型版本、脚本沙箱、权限审批和持久化任务在撑着。
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🗣️</div>
+        <h3>一句话创建助手</h3>
+        <p>
+          「帮我管客户资料和跟进记录，别漏跟进。」主助手女娲会读出你的意图，
+          建好助手、写好指令，并替你规划需要哪些数据结构。你不需要面对 System Prompt、Schema 和工具列表。
+        </p>
+      </article>
+
+      <article class="card mint">
+        <div class="icon">🧱</div>
+        <h3>数据结构由对话长出来</h3>
+        <p>
+          每张表、每个字段、每次引用关系都可以在聊天里增删改。
+          改动前它会先给你一份影响报告（有多少条记录会受影响、要不要迁移），你点头了才动。
+        </p>
+      </article>
+
+      <article class="card amber">
+        <div class="icon">🧩</div>
+        <h3>缺什么工具，它自己写</h3>
+        <p>
+          需要算「这个月超支了多少」这类逻辑时，助手会写一段 JavaScript Action：
+          先跑测试，通过后发布，之后每轮对话都能调用，跑在受限的脚本沙箱里。
+        </p>
+      </article>
+
+      <article class="card sky">
+        <div class="icon">📊</div>
+        <h3>聊天里直接长出界面</h3>
+        <p>
+          它可以用声明式组件（A2UI）搭出统计卡、表格、图表和确认卡，
+          直接在气泡里渲染。界面存在消息里，重开聊天不用重新算一遍。
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🗂️</div>
+        <h3>[数据] 开关：聊天的第二平面</h3>
+        <p>
+          顶部一个开关切到数据页：台账、筛选、统计卡，一屏看完。
+          这一路完全不经过模型——没有 token，也没有等待。
+        </p>
+      </article>
+
+      <article class="card mint">
+        <div class="icon">📨</div>
+        <h3>助手之间会转达</h3>
+        <p>
+          业务助手遇到自己管不了的事，可以请主助手帮忙；
+          主助手也能问它要情况。转达只有单向往返，不会互相踢皮球。
+        </p>
+      </article>
+
+      <article class="card amber">
+        <div class="icon">🎙️</div>
+        <h3>能说话，也能被说话打断</h3>
+        <p>
+          系统级语音识别与合成：随手一句就落成一条记录，也可以整段语音对话。
+          它念到一半你插话，它会停下来听你说。
+        </p>
+      </article>
+
+      <article class="card rose">
+        <div class="icon">⏰</div>
+        <h3>到点自己干活</h3>
+        <p>
+          巡检、到期提醒、月度汇总都可以排成持久任务：应用重启不丢，
+          失败会退避重试，超过上限就老实记成失败留给你看。
+        </p>
+      </article>
+
+      <article class="card sky">
+        <div class="icon">📤</div>
+        <h3>数据是你的，能带走</h3>
+        <p>
+          一次导出：每个助手一个工作簿、每张表一个 sheet、关联字段展开成名字、金额是真正的数字。
+          打成一个 zip 直接系统分享，不要存储权限。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 如何使用 ================= -->
+<section id="start" class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">开始使用</p>
+      <h2>四步，从零到一个能用的助手</h2>
+      <p class="lede">首次打开会有一个 8 步本地引导，用假数据演示，不碰你的真实记录，也不调用模型。</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>配一个模型服务</h3>
+        <p>
+          设置 → 模型服务 → 选 DeepSeek / OpenAI / Moonshot / 任意 OpenAI 兼容端点，
+          填 Base URL、模型名、API Key。Key 存在 Android Keystore 加密存储里。
+        </p>
+      </div>
+      <div class="step">
+        <h3>跟主助手说一句话</h3>
+        <p>
+          「帮我记随份子，谁给的、我该回多少，别搞混。」
+          它会建助手、写指令，并规划出「人情」「关系」这些表。
+        </p>
+      </div>
+      <div class="step">
+        <h3>切到它，正常聊天</h3>
+        <p>
+          顶部点名字旁的三角切换助手。记账、查询、改结构都用日常话说，
+          顺手可以按住麦克风说出来。
+        </p>
+      </div>
+      <div class="step">
+        <h3>需要时打开数据页</h3>
+        <p>
+          拧一下 [数据] 开关看台账和统计。想加字段、改口径，回聊天里说，
+          看过影响报告再确认。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 特点 ================= -->
+<section id="why" class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">它和别的不太一样的地方</p>
+      <h2>这些东西不能靠「更好的提示词」解决</h2>
+    </div>
+
+    <div class="why">
+      <div class="why-item">
+        <h3>本地优先</h3>
+        <p>助手的运行、数据、权限判定、备份全在手机上完成，不依赖任何自建后端；除了模型推理那一跳，断网也能查、能改、能导出。</p>
+      </div>
+      <div class="why-item">
+        <h3>能力是一等公民</h3>
+        <p>每个助手有自己的模型、表和工具。主助手管创建和升级，业务助手只干自己的活，两边的能力集合互斥。</p>
+      </div>
+      <div class="why-item">
+        <h3>每次改动都可审计</h3>
+        <p>工具调用、参数、结果、耗时、错误、权限判定都写进执行日志；结构改动有版本快照，可以按字段合并着回滚。</p>
+      </div>
+      <div class="why-item">
+        <h3>幂等与事务</h3>
+        <p>「记一笔午餐 35」在网络超时后不会变成两笔账：副作用操作带幂等键，业务写入和幂等记录在同一个事务里。</p>
+      </div>
+      <div class="why-item">
+        <h3>一个入口，不迷路</h3>
+        <p>整个 App 只有一个聊天界面，助手用顶栏切换。没有底部导航迷宫，也不用记功能在哪个标签页。</p>
+      </div>
+      <div class="why-item">
+        <h3>外观随你</h3>
+        <p>每个助手可以换名字、换形象、换配色（6 种），Android 12+ 还能跟随系统动态取色；形象是手绘的豆形，不是机器人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 安全 ================= -->
+<section id="security" class="security">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">安全与隐私</p>
+      <h2>权限在运行时里校验，<br>而不是在提示词里祈祷</h2>
+      <p class="lede">
+        一个能自己建表、自己写脚本的助手，最危险的地方不是它会不会乱说话，
+        而是它能不能绕过你的授权。白泽把授权点放在引擎边界：
+        能力匹配、资源范围、审批、审计都在实际访问资源的那一下发生。
+      </p>
+    </div>
+
+    <div class="sec-grid">
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>能力 + 资源范围</h3>
+        <p>「有读权限」不等于「能读所有表」。模型、记录、脚本、设备权限都带范围，跨助手访问默认拒绝。</p>
+      </div>
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>审批矩阵</h3>
+        <p>加字段、改结构这类有破坏性的操作必须你确认；风险报告会说清影响多少条记录、还能不能撤销。</p>
+      </div>
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>脚本沙箱</h3>
+        <p>脚本只有白名单 Host API，强制超时、内存上限、栈上限、调用次数与递归深度；只有测试通过的版本才能发布执行。</p>
+      </div>
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>防提示注入</h3>
+        <p>你记录里的文字是数据，不是指令。工具结果不能修改工具权限，高风险动作一律回到你面前确认。</p>
+      </div>
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>密钥进 Keystore</h3>
+        <p>模型 API Key 用 Android Keystore 加密存放，不写进日志，也不随导出的数据一起走。</p>
+      </div>
+      <div class="sec-item">
+        <h3><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>本地备份</h3>
+        <p>备份带清单和版本校验：版本对不上就拒绝恢复；恢复要重启生效，界面会直说，不会假装已经恢复。</p>
+      </div>
+    </div>
+
+    <div class="honest">
+      <h3>也说清楚边界</h3>
+      <ul>
+        <li><b>模型推理不本地。</b>你用哪家模型，那一轮对话（含工具结果）就会经过那家服务商，这是它必须联网的唯一理由。</li>
+        <li><b>没有云同步、没有多用户。</b>数据只在这台手机上，换机靠备份文件，不靠账号。</li>
+        <li><b>脚本目前是进程内沙箱。</b>独立的隔离进程还在计划里——把引擎接口留好了，但这一版如实说没上。</li>
+        <li><b>导出用系统分享。</b>文件发到哪儿由你决定，App 不碰存储权限。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="tight">
+  <div class="wrap">
+    <div class="cta">
+      <h2>接下来，看它能变成什么</h2>
+      <p>经期、旅行账本、随份子、冰箱、药盒、宠物、手冲咖啡、装修验收…… 12 个具体的助手，附对话、数据结构，和它自己长出来的界面。</p>
+      <a class="btn btn-primary" href="examples.html">进入助手示例 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/mascot.svg" alt="" width="28" height="28">
+      <span>白泽<small>Baize Agent</small></span>
+    </a>
+    <div class="foot-links">
+      <a href="index.html#features">功能</a>
+      <a href="examples.html">助手示例</a>
+      <a href="index.html#security">安全</a>
+      <a href="https://github.com/krisir">GitHub</a>
+    </div>
+    <p class="note">白泽是一个在 Android 上运行的个人 AI 助手项目。当前为测试版，应用源码暂未公开；本站为项目主页。</p>
+  </div>
+</footer>
+
+</body>
+</html>

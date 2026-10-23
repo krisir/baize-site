@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>助手示例 — 白泽 · Baize Agent</title>
+<meta name="description" content="12 个有创意的白泽助手示例：经期助手、旅行记账、随份子记账、冰箱管家、药盒管家、宠物健康档案、手冲咖啡实验室、装修预算与验收……">
+<meta name="theme-color" content="#7355D8">
+<meta property="og:title" content="白泽 · 12 个助手示例">
+<meta property="og:description" content="经期、旅行记账、随份子、冰箱、药盒、宠物、手冲咖啡、装修验收……看白泽能把助手做成什么样。">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/mascot.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/mascot.svg" alt="" width="34" height="34">
+      <span>白泽<small>Baize Agent</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">功能</a>
+      <a href="index.html#start">如何使用</a>
+      <a href="index.html#security">安全性</a>
+      <a class="active" href="examples.html">助手示例</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">助手示例</p>
+    <h2>12 个助手，都是「说一句话」建出来的</h2>
+    <p class="lede">
+      下面每一个都不是预设模板：描述需求之后，助手自己决定要建哪些表、哪些字段，
+      再按你的说话习惯长出台账、卡片和脚本。列表里的「数据结构」就是它当场建出来的东西。
+    </p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+
+    <div class="howto">
+      <h3>怎么让白泽做出这些？</h3>
+      <p>几乎没有「配置」环节，整条路径就是聊天：</p>
+      <ol>
+        <li><b>描述需求，带上你的怪癖。</b>例如「记随份子，要能看出我还欠谁人情，别只记金额」——细节写得越具体，它建的表越贴。</li>
+        <li><b>它建表，你看结果。</b>第一次对话它会规划模型和字段，之后每次要新维度，就在聊天里说「加一个『是否已回礼』」。</li>
+        <li><b>直接用它，不用学命令。</b>「上周买菜花了多少」「电钻借谁了」，问就行；数据页只在你想要全局视角时打开。</li>
+        <li><b>让它自己补工具和界面。</b>说「给我做个本月分类开销的柱状图」「超过 500 元的账要二次确认」，它会写 Action、发 A2UI 卡片。</li>
+      </ol>
+    </div>
+
+    <div class="ex-grid">
+
+      <!-- 1 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🌙</div>
+          <div>
+            <h3>经期助手</h3>
+            <p>记周期，也记那几天的状态——为的是有一天能带着证据去看医生。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">今天开始了，肚子绞着疼，量中等，吃了布洛芬</div>
+          <div class="bubble bot">记下了。这次距上次 28 天（近 6 次区间 26–31 天）。疼痛程度我按「绞痛」记成 3/3，已关联到布洛芬。</div>
+          <div class="bubble me">下次大概什么时候？我下个月要出差</div>
+          <div class="bubble bot">按近 6 次中位数推测 11 月 20 日前后，±3 天。出差那几天在预测窗口里，我把行李清单里加了卫生用品。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">周期(start, end, flow, pain)</span>
+            <span class="chip">症状(date, type, level)</span>
+            <span class="chip">用药(date, drug, dose)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">周期长度折线卡</span>
+            <span class="chip solid mint">症状 × 周期关联</span>
+            <span class="chip solid amber">就医摘要导出</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>没有哪个经期 App 会让你临时加「这次吃了什么药」这种字段，而这里你说一句就有了。</div>
+      </article>
+
+      <!-- 2 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">✈️</div>
+          <div>
+            <h3>旅行记账</h3>
+            <p>多币种、按行程分组、AA 分摊，回来一分钟算清谁该给谁钱。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">在京都，俩人吃了 8600 日元，我先付的</div>
+          <div class="bubble bot">记入「京都 11 月」行程，餐饮，8600 JPY，付款人你，两人平摊。按今天汇率 ≈ 412 元，人均 206 元。</div>
+          <div class="bubble me">这趟一共花了多少？</div>
+          <div class="bubble bot">总计 6,240 元（含 3 种货币，已折算）。机票 2,880、住宿 1,900、餐饮 760、市内交通 420、门票 280。老周还该给你 318 元。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">行程(destination, from, to)</span>
+            <span class="chip">支出(amount, currency, fx, category, payer)</span>
+            <span class="chip">分摊(expense, person, share)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">汇率折算脚本</span>
+            <span class="chip solid mint">AA 结算卡</span>
+            <span class="chip solid amber">行程明细 Excel</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>记账 App 的「多币种」通常要你手动维护汇率；这里说「按今天汇率」就写进脚本了。</div>
+      </article>
+
+      <!-- 3 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🧧</div>
+          <div>
+            <h3>随份子记账</h3>
+            <p>人情是双向账：收过谁的、回过谁、欠谁的，一开口就能答。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">表妹结婚，我随了 2000</div>
+          <div class="bubble bot">记好了：送出 2000，表妹，婚礼，10 月 23 日。三年前我结婚她随了 1000。</div>
+          <div class="bubble me">我欠谁的人情比较多？</div>
+          <div class="bubble bot">相对你收到的，你多回的有 4 位（表妹 +1000、张哥 +600…）。还没回的有 2 位：大学室友 800、刘阿姨 500。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">人情(date, name, relation, event, amount, direction)</span>
+            <span class="chip">关系(name, relation, note)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">「该回礼」提醒清单</span>
+            <span class="chip solid mint">按关系汇总统计卡</span>
+            <span class="chip solid rose">办事前打印名单</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>关键不是记账，是「他和我的往来差额」。一句「加个差额列」就有了。</div>
+      </article>
+
+      <!-- 4 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🥬</div>
+          <div>
+            <h3>冰箱管家</h3>
+            <p>保质期是它的主场：临期先吃、缺什么进清单，顺手帮你决定今晚吃什么。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">买了 2 盒豆腐，冷藏，16 号过期</div>
+          <div class="bubble bot">已入库。豆腐现在剩 2 天，比同期的鸡蛋先到期。要不要我每天早上扫一遍临期？</div>
+          <div class="bubble me">今晚吃什么，别买菜了</div>
+          <div class="bubble bot">现有：豆腐、青椒、两个鸡蛋、半袋意面。建议麻婆豆腐 + 意面沙拉（豆腐今晚必须吃掉）。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">食材(name, qty, unit, bought, expire, place)</span>
+            <span class="chip">清单(name, qty, done)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">每日临期巡检</span>
+            <span class="chip solid mint">按存放位置分组的台账</span>
+            <span class="chip solid amber">「今晚吃什么」脚本</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>别人给你推菜谱，它是拿你冰箱里的东西推——因为食材就是它的数据。</div>
+      </article>
+
+      <!-- 5 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">💊</div>
+          <div>
+            <h3>药盒管家</h3>
+            <p>一家人的药放在一个台账里：谁在吃什么、还剩几天、什么时候复诊。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">我爸的降压药，早上一片，今天开始吃</div>
+          <div class="bubble bot">记好了：爸爸 / 氨氯地平 5mg / 每日 1 次（早）。一盒 28 片，预计 11 月 19 日吃完。</div>
+          <div class="bubble me">我妈最近说头晕，吃的是什么</div>
+          <div class="bubble bot">妈妈在用：二甲双胍（随餐）、维生素 D。头晕这件事我单独记在症状里了，要不要一起带去看诊时给医生看？</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">家人(name, birth, note)</span>
+            <span class="chip">用药(person, drug, dose, freq, left, expire)</span>
+            <span class="chip">服药(person, drug, date, taken)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">余量倒计时卡</span>
+            <span class="chip solid mint">补药提醒任务</span>
+            <span class="chip solid sky">就诊用药清单</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>提醒类 App 只管定时响；它知道「还剩几片」，所以在药快吃完时才提醒，不在半夜提醒。</div>
+      </article>
+
+      <!-- 6 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🐕</div>
+          <div>
+            <h3>宠物健康档案</h3>
+            <p>体重曲线、疫苗驱虫周期、每次看病的花费与结论，一个都不能少。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">今天称了 6.4 公斤</div>
+          <div class="bubble bot">记好了。近 8 周 6.1 → 6.4，涨得挺稳。驱虫上次是 9 月 28 日，体内驱虫还有 5 天到间隔。</div>
+          <div class="bubble me">上周拉肚子那次的病历我还记得啥？</div>
+          <div class="bubble bot">10 月 16 日：软便 2 天，就诊「肠胃炎」，开了益生菌 5 天，花了 260。当时体重 6.2。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">体重(date, kg)</span>
+            <span class="chip">免疫(name, date, next)</span>
+            <span class="chip">就诊(date, symptom, diagnosis, cost)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">体重折线图</span>
+            <span class="chip solid mint">疫苗倒计时</span>
+            <span class="chip solid amber">年度体检摘要</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>宠物 App 是通用模板；它记得你上次的诊断和花销，换医院时能顺着说清楚病史。</div>
+      </article>
+
+      <!-- 7 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">☕</div>
+          <div>
+            <h3>手冲咖啡实验室</h3>
+            <p>记参数、记风味、记豆子，直到某一杯好喝时你能精确复现它。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">耶加雪菲，15g 粉，225 水，92 度，2 分 10，酸亮，8 分</div>
+          <div class="bubble bot">记好了。同款豆你之前 8 分那次是 94 度、1:15、2 分 05。这次酸更亮，像是水温低了。</div>
+          <div class="bubble me">这包豆还剩多少？</div>
+          <div class="bubble bot">还剩 118g，按每次 15g 还能冲 7 次。烘焙日是 10 月 8 日，已进入风味窗口末期，建议这周喝完。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">豆子(origin, process, roast_date, stock)</span>
+            <span class="chip">冲煮(bean, water, temp, ratio, time, score, notes)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">最佳配方卡片</span>
+            <span class="chip solid mint">豆子库存扣减脚本</span>
+            <span class="chip solid sky">打分 × 参数对比图</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>咖啡 App 的字段是给所有人定的；你只想比「水温 vs 分数」，说一句它就画出来。</div>
+      </article>
+
+      <!-- 8 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🏠</div>
+          <div>
+            <h3>装修预算与验收</h3>
+            <p>十几万的开销拆成小项盯：超支多少、哪个环节返工、收房那天按房间验。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">水电今天结清了，付了 18600，原预算 15000</div>
+          <div class="bubble bot">水电超支 24%。全屋至今已花 8.6 万 / 预算 8 万，主材还剩 2 项未定，后面要压一压。</div>
+          <div class="bubble me">周六收房，我该怎么验？</div>
+          <div class="bubble bot">按房间给你出了清单：卫生间（地漏返味、台盆下水）、厨房（吊柜水平、燃气管口）、卧室（插座通电、门缝）。逐项打勾就好，问题直接记成整改项。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">分项(phase, budget, actual, note)</span>
+            <span class="chip">验收(room, item, pass, issue)</span>
+            <span class="chip">整改(issue, owner, done)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">超支预警脚本</span>
+            <span class="chip solid mint">分项进度统计卡</span>
+            <span class="chip solid amber">验收清单（按房间）</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>装修 App 只会给模板清单；它盯着你的实际支出，超 10% 就开口。</div>
+      </article>
+
+      <!-- 9 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">📦</div>
+          <div>
+            <h3>二手转卖助手</h3>
+            <p>挂价、砍价、邮费都记账，最后算的是真金白银的盈亏。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">旧相机挂闲鱼 2400，买的时候 5200</div>
+          <div class="bubble bot">已登记，折旧 54%。同类近期成交价 2200–2500，你的定价在合理区间。</div>
+          <div class="bubble me">有人砍到 2000，包邮</div>
+          <div class="bubble bot">记在议价里（2000 + 邮费 18）。这一单实收 1982，亏损 3218。还等吗？挂着已经 12 天没动静的另外两件，我可以提醒你降价。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">物品(name, bought, cost, ask, platform, status)</span>
+            <span class="chip">议价(item, date, amount, result)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">真实盈亏脚本（含邮费）</span>
+            <span class="chip solid mint">滞留降价提醒</span>
+            <span class="chip solid rose">年度断舍离汇总</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>二手平台不会告诉你「这台机器一共亏了多少」；它把这笔账算到了分。</div>
+      </article>
+
+      <!-- 10 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🌿</div>
+          <div>
+            <h3>植物养护</h3>
+            <p>浇水周期随季节走，浇死的那盆也要复盘——别再买同样的。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">龟背竹今天浇透了，底下有水流出来</div>
+          <div class="bubble bot">记好了。你 10 月一直是 9–11 天一浇，最近室内干，可以看叶子再决定。窗边那盆散尾葵已经 14 天没浇水。</div>
+          <div class="bubble me">上个月那盆蕨是为什么死的？</div>
+          <div class="bubble bot">复盘记录：冬季放在暖气旁，浇水 3 天一次，叶尖先焦后整株枯。判断是高温低湿 + 过频浇水。同类蕨类下次别放暖气边。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">植物(name, species, position, light)</span>
+            <span class="chip">养护(plant, date, water, fert, note)</span>
+            <span class="chip">复盘(plant, cause, lesson)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">「今天该浇谁」清单</span>
+            <span class="chip solid mint">季节间隔离散统计</span>
+            <span class="chip solid amber">养护月报</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>提醒类 App 固定 7 天一浇；它从你的记录里算出真实间隔，还会随季节改。</div>
+      </article>
+
+      <!-- 11 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">💼</div>
+          <div>
+            <h3>面试追踪</h3>
+            <p>流程到第几轮、面了谁、问了什么、感觉如何，最后横向比 offer。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">A 公司二面过了，让我等三面</div>
+          <div class="bubble bot">已更新为「二面通过」。这个岗位一面问了 3 个系统设计题，我把问题都存下来了。要不要设一个 5 天没消息就提醒你跟进的规则？</div>
+          <div class="bubble me">两家 offer 帮我比一下</div>
+          <div class="bubble bot">A：28k×14，通勤 50 分钟，主管是二面那位。B：31k×13，远程 2 天，团队 6 人。按你之前记的偏好「带团队优先」，A 更贴，但年包少 1.6 万。</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">公司(name, industry, note)</span>
+            <span class="chip">岗位(company, title, range, stage)</span>
+            <span class="chip">面试(role, round, date, questions, feel)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">offer 横向对比表</span>
+            <span class="chip solid mint">沉寂跟进提醒</span>
+            <span class="chip solid sky">面试题库沉淀</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>招聘 App 记的是流程状态；它记的是「你当时怎么答的、你的判断标准是什么」。</div>
+      </article>
+
+      <!-- 12 -->
+      <article class="ex">
+        <div class="ex-head">
+          <div class="ex-avatar">🔧</div>
+          <div>
+            <h3>家电维修档案</h3>
+            <p>型号、购买日、保修到哪天、修过什么——报修前先问它，能省一笔上门费。</p>
+          </div>
+        </div>
+        <div class="ex-chat">
+          <div class="bubble me">洗衣机又不脱水了</div>
+          <div class="bubble bot">这台去年 3 月换过排水泵（花了 320，保修到 2026-03）。整机保 3 年，到 2027-05 才过期——这次别自己找师傅，直接报官方。</div>
+          <div class="bubble me">师傅说主板坏了，要 900</div>
+          <div class="bubble bot">记一笔待比价：同型号主板市价 380–450，含工时 600 以内。上次同样的故障其实只是排水泵堵了，要不要让师傅先确认这一点？</div>
+        </div>
+        <div class="ex-block">
+          <h4>它自己建的表</h4>
+          <div class="chips">
+            <span class="chip">家电(name, brand, model, bought, warranty_to)</span>
+            <span class="chip">维修(appliance, date, fault, cost, vendor)</span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <h4>长出来的能力</h4>
+          <div class="chips">
+            <span class="chip solid">保修到期提醒</span>
+            <span class="chip solid mint">故障史摘要（给师傅看）</span>
+            <span class="chip solid amber">维修花费统计卡</span>
+          </div>
+        </div>
+        <div class="ex-foot"><b>比 App 强在哪：</b>它记得这台机器的病历。一句「上次是什么问题」，就能帮你把 900 块的报价聊回 400。</div>
+      </article>
+
+    </div>
+
+    <div class="cta" style="margin-bottom:56px">
+      <h2>想要一个没在这儿的助手？</h2>
+      <p>真正用起来的时候，你的需求一定比这 12 个更奇怪。那就直接说出来——白泽的整套设计就是为了应付「没预想到的那个需求」。</p>
+      <a class="btn btn-primary" href="index.html">回到主页，看它怎么工作 →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/mascot.svg" alt="" width="28" height="28">
+      <span>白泽<small>Baize Agent</small></span>
+    </a>
+    <div class="foot-links">
+      <a href="index.html">主页</a>
+      <a href="index.html#features">功能</a>
+      <a href="index.html#security">安全</a>
+      <a href="https://github.com/krisir">GitHub</a>
+    </div>
+    <p class="note">示例中的对话与数据为示意，展示的是助手的建模与表达能力，不是预设模板。</p>
+  </div>
+</footer>
+
+</body>
+</html>
